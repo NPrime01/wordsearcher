@@ -19,14 +19,14 @@ public class MainController {
 	
 	@GetMapping("/query_form")
 	public String QueryForm(Model model) {
-		WordData Word = new WordData("");
+		WordQuery Word = new WordQuery("", "");
 		model.addAttribute("Word", Word);
 		return "/query_form";
 	}
 	
 	@PostMapping("/query_form")
-	public String SubmitQuery(@ModelAttribute("Word") WordData Word, Model model) {
-		List<String> wordList = wordRepository.getAllPossible(Word.getWord()).stream()
+	public String SubmitQuery(@ModelAttribute("Word") WordQuery Word, Model model) {
+		List<String> wordList = wordRepository.getAllPossible(Word.getWord(), Word.getMode()).stream()
 			.map(w -> w.getWord())
 			.collect(Collectors.toList());
 		

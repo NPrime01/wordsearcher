@@ -75,10 +75,11 @@ button {
 	outline: none;
 	border: none;
 	border-bottom: 1px dashed #83A4C5;
-	width: 275px;
+	width: 80%;
 	overflow: hidden;
 	resize:none;
 	height:20px;
+	resize: none;
 }
 
 .form-style-4 textarea:focus, 

@@ -7,15 +7,21 @@
 </head>
 <body>
     <form class="form-style-4" th:action="@{/query_form}" th:object="${Word}" method="post">
-        <table class="header-table">
-            <tr>
-                <label for="field4">
-                <th><span>Your Query</span></th>
-                <th><textarea name="field4" th:field="*{word}" onkeyup="adjust_textarea(this)" required="true"></textarea></th>
-                <th><input type="submit" value="Submit Query"></th>
-                </label>
-            </tr>
-        </table>
+        <label for="field4">
+            <span>Your Query</span>
+            <textarea name="field4" th:field="*{word}" onkeyup="adjust_textarea(this)"></textarea>
+        </label>
+        <label for="field4">
+            <span>Query Mode</span>
+            <select th:field="*{mode}">
+                <option th:value="'Starts With'" th:text="'Starts With'">Starts With</option>
+                <option th:value="'Ends With'" th:text="'Ends With'">Ends With</option>
+                <option th:value="'Contains'" th:text="'Contains'">Contains</option>
+            </select>
+        </label>
+        <label for="field4">
+            <input type="submit" value="Submit Query">
+        </label>
     </form>
 </body>
 </html>

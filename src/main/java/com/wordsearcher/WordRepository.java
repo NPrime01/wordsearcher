@@ -2,6 +2,8 @@ package com.wordsearcher;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,31 @@ public class WordRepository {
 	}
 
     public List<WordData> getAllPossible(String alike) {
-        return jdbcTemplate.query("SELECT * FROM words WHERE word LIKE '" + alike + "%'", new WordRowMapper());
+        return jdbcTemplate.query("SELECT * FROM words WHERE word LIKE '" + alike + "%'",
+            new WordRowMapper());
+    }
+
+    public List<WordData> getAllPossible(String alike, String mode) {
+        List<WordData> results;
+        switch(mode) {
+            case "Starts With": // starts with case
+                results = jdbcTemplate.query("SELECT * FROM words WHERE word LIKE '" + alike + "%'",
+                    new WordRowMapper());
+                break;
+            case "Ends With": // ends with case
+                results = jdbcTemplate.query("SELECT * FROM words WHERE word LIKE '%" + alike + "'",
+                    new WordRowMapper());
+                break;
+            case "Contains": // contains case
+                results = jdbcTemplate.query("SELECT * FROM words WHERE word LIKE '%" + alike + "%'",
+                    new WordRowMapper());
+                break;
+            default: // mode incorrectly set
+                results = Arrays.asList(new WordData("Error with mode change"));
+                break;
+        }
+
+        return results;
+        
     }
 }
