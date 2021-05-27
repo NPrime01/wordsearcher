@@ -48,6 +48,6 @@ public class WordsearcherApplication implements CommandLineRunner {
 
     log.info("Finished Creating Table");
 
-    wordRepository.getAllPossible("Ann").forEach(word -> System.out.println(word.getWord()));
+    //wordRepository.getAllPossible("Ann").forEach(word -> System.out.println(word.getWord()));
   }
 }

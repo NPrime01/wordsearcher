@@ -6,8 +6,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form class="form-style-4"  method="post">
-        <a href="/query_form">Click Here to Make your Query</a>
-    </form>
+    <table class="result-table">
+        <tr><th>Results For: <span th:text="${Word.getWord()}"></span></th></tr>
+        <tr th:each="word : ${wordList}">
+            <td><span th:text="${word}"></span></td>
+        </tr>
+    </table>
 </body>
 </html>

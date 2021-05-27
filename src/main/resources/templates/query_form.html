@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Word Searcher</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form class="form-style-4" th:action="@{/query_form}" th:object="${Word}" method="post">
+        <table class="header-table">
+            <tr>
+                <label for="field4">
+                <th><span>Your Query</span></th>
+                <th><textarea name="field4" th:field="*{word}" onkeyup="adjust_textarea(this)" required="true"></textarea></th>
+                <th><input type="submit" value="Submit Query"></th>
+                </label>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
