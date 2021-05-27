@@ -39,17 +39,14 @@ public class WordsearcherApplication implements CommandLineRunner {
     jdbcTemplate.execute("DROP TABLE words IF EXISTS");
     jdbcTemplate.execute("CREATE TABLE words(word VARCHAR(46))");
     
-    // Read the file memory
-    File file = ResourceUtils.getFile("classpath:words.txt");
+    // Read the file on disk into memory
+    File file = ResourceUtils.getFile("classpath:static/words.txt");
     List<Object[]> tokens = Files.lines(file.toPath())
       .map(word -> word.split(" "))
       .collect(Collectors.toList()); 
 
     // Load data from Memory to table in sql
     jdbcTemplate.batchUpdate("INSERT INTO words(word) VALUES (?)", tokens);
-
     log.info("Finished Creating Table");
-
-    //wordRepository.getAllPossible("Ann").forEach(word -> System.out.println(word.getWord()));
   }
 }

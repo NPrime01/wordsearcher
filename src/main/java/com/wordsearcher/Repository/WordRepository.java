@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.wordsearcher.Model.WordData;
 
@@ -26,12 +27,7 @@ public class WordRepository {
 		}
 	}
 
-    public List<WordData> getAllPossible(String alike) {
-        return jdbcTemplate.query("SELECT * FROM words WHERE word LIKE '" + alike + "%'",
-            new WordRowMapper());
-    }
-
-    public List<WordData> getAllPossible(String alike, String mode) {
+    public List<String> getAllPossible(String alike, String mode) {
         List<WordData> results;
         switch(mode) {
             case "Starts With": // starts with case
@@ -51,7 +47,7 @@ public class WordRepository {
                 break;
         }
 
-        return results;
+        return results.stream().map(word -> word.getWord()).collect(Collectors.toList());
         
     }
 }

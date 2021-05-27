@@ -19,6 +19,11 @@ public class MainController {
 	@Autowired
 	private WordRepository wordRepository;
 	
+	/*
+	 * The following functions handle getting the input from the user
+	 * They are mirrored to allow the results to appear on the same page as the query
+	 */
+
 	@GetMapping("/query_form")
 	public String queryForm(Model model) {
 		WordQuery Word = new WordQuery("", "");
@@ -35,9 +40,7 @@ public class MainController {
 	
 	@PostMapping("/query_form")
 	public String submitQuery(@ModelAttribute("Word") WordQuery Word, Model model) {
-		List<String> wordList = wordRepository.getAllPossible(Word.getWord(), Word.getMode()).stream()
-			.map(w -> w.getWord())
-			.collect(Collectors.toList());
+		List<String> wordList = wordRepository.getAllPossible(Word.getWord(), Word.getMode());
 		
 		model.addAttribute("wordList", wordList);
 
@@ -46,9 +49,7 @@ public class MainController {
 
 	@PostMapping("/query_results")
 	public String submitQeuryMirror(@ModelAttribute("Word") WordQuery Word, Model model) {
-		List<String> wordList = wordRepository.getAllPossible(Word.getWord(), Word.getMode()).stream()
-			.map(w -> w.getWord())
-			.collect(Collectors.toList());
+		List<String> wordList = wordRepository.getAllPossible(Word.getWord(), Word.getMode());
 		
 		model.addAttribute("wordList", wordList);
 		

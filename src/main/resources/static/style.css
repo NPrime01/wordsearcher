@@ -1,14 +1,22 @@
 /* Display only. Not needed! */
 
-@import 'https://raw.githubusercontent.com/jonathantneal/system-font-css/gh-pages/system-font.css';
-
+/* Alternate theme
 body {
   background: dodgerblue linear-gradient(45deg, aqua, dodgerblue, deeppink) fixed;
 	color: white;
-  font: normal 32px/1.6 system-ui, sans-serif;
+  	font: normal 32px/1.6 system-ui, sans-serif;
 	text-shadow: 0 1px 1px hsl(0 0% 0% / 20%);
   margin: 3rem;
 }
+*/
+
+body {
+	background: white linear-gradient(45deg, white, white, white) fixed;
+	  color: white;
+		font: normal 32px/1.6 system-ui, sans-serif;
+	  text-shadow: 0 1px 1px hsl(0 0% 0% / 20%);
+	margin: 3rem;
+  }
 
 h1 {
 	font-weight: normal;
@@ -54,12 +62,14 @@ button {
 }
 .form-style-4 label {
 	display:block;
+	color: #fff;
 }
 .form-style-4 label > span{
 	display: inline-block;
 	width: 110px;
 	height: 25px;
 	margin-bottom: 10px;
+	color: #fff;
 }
 .form-style-4 input[type=text],
 .form-style-4 input[type=email] 
@@ -151,4 +161,9 @@ tr:nth-child(even) {
 
 td:hover {
    background-color: #394D61;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
 }

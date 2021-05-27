@@ -18,8 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.ResourceUtils;
 
-import jdk.nashorn.internal.runtime.logging.DebugLogger;
-
 @SpringBootTest
 class WordsearcherApplicationTests {
 	@Autowired
@@ -27,6 +25,7 @@ class WordsearcherApplicationTests {
 
 	@Test
 	void DatabaseLoadsCorrectly() {
+
 		List<Object[]> tokens = null;
 		try {
 			File file = ResourceUtils.getFile("classpath:static/words.txt");
@@ -40,15 +39,13 @@ class WordsearcherApplicationTests {
 		}
 		
 		// make sure the entire database loaded into memory
-		assertEquals(tokens.size(), wordRepository.getAllPossible("").size());
+		assertEquals(tokens.size(), wordRepository.getAllPossible("", "StartsWith").size());
 	}
 
 	@Test
 	void startsWithTest() {
 		// collect test data
-		List<String> actual = wordRepository.getAllPossible("Ry", "Starts With").stream()
-			.map(word -> word.getWord())
-			.collect(Collectors.toList());
+		List<String> actual = wordRepository.getAllPossible("Ry", "Starts With");
 
 		// set up example data
 		List<String> expected = Arrays.asList("Ryan", "Ryann", "Ryazan", "Rybinsk", "Rycca",
@@ -63,9 +60,7 @@ class WordsearcherApplicationTests {
 	@Test
 	void endsWtihTest() {
 		// collect test data
-		List<String> actual = wordRepository.getAllPossible("axe", "Ends With").stream()
-			.map(word -> word.getWord())
-			.collect(Collectors.toList());
+		List<String> actual = wordRepository.getAllPossible("axe", "Ends With");
 		
 		// set up expected data
 		List<String> expected = Arrays.asList("Badaxe", "battle-axe", "breakaxe", "broadaxe",
@@ -79,9 +74,7 @@ class WordsearcherApplicationTests {
 	@Test 
 	void containsTest() {
 		// collect test data
-		List<String> actual = wordRepository.getAllPossible("zoom", "Contains").stream()
-			.map(word -> word.getWord())
-			.collect(Collectors.toList());
+		List<String> actual = wordRepository.getAllPossible("zoom", "Contains");
 
 		// get actual data
 		List<String> expected = Arrays.asList("bazooms", "zoom", "zoomagnetic", "zoomagnetism",
