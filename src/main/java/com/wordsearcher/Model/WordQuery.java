@@ -1,4 +1,4 @@
-package com.wordsearcher;
+package com.wordsearcher.Model;
 
 public class WordQuery {
     private String mode;

@@ -23,5 +23,47 @@
             <input type="submit" value="Submit Query">
         </label>
     </form>
+    
+    <div class="form-style-4">
+        <span>Results</span><br />
+        <span>Word: <span th:text="${Word.getWord()}"></span></span><br />
+        <span>Mode: <span th:text="${Word.getMode()}"></span></span><br />
+        <label for="field4"><button id="qCopy">Copy Query to Clipboard</button></label>
+    </div>
+
+    <table id="results" class="result-table">
+        <tr th:each="word : ${wordList}">
+            <td><span th:text="${word}"></span></td>
+        </tr>
+    </table>
 </body>
 </html>
+
+<script type="text/javascript">
+    function selectElementContents(el) {
+        var body = document.body, range, sel;
+        if (document.createRange && window.getSelection) {
+            range = document.createRange();
+            sel = window.getSelection();
+            sel.removeAllRanges();
+            try {
+                range.selectNodeContents(el);
+                sel.addRange(range);
+            } catch (e) {
+                range.selectNode(el);
+                sel.addRange(range);
+            }
+        } else if (body.createTextRange) {
+            range = body.createTextRange();
+            range.moveToElementText(el);
+            range.select();
+        }
+    }
+
+    const btn = document.getElementById("qCopy");
+
+    btn.onclick = function() {
+        selectElementContents(document.getElementById("results"));
+        document.execCommand('copy');
+    }
+</script>

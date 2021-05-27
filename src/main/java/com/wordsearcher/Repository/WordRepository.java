@@ -1,10 +1,12 @@
-package com.wordsearcher;
+package com.wordsearcher.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+
+import com.wordsearcher.Model.WordData;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

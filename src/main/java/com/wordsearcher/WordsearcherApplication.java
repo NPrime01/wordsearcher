@@ -14,6 +14,8 @@ import java.nio.file.Files;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.wordsearcher.Repository.WordRepository;
+
 @SpringBootApplication
 public class WordsearcherApplication implements CommandLineRunner {
 
