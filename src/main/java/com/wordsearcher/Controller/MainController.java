@@ -28,14 +28,14 @@ public class MainController {
 	public String queryForm(Model model) {
 		WordQuery Word = new WordQuery("", "");
 		model.addAttribute("Word", Word);
-		return "/query_form";
+		return "query_form";
 	}
 
 	@GetMapping("/query_results")
 	public String queryFormMirror(Model model) {
 		WordQuery Word = new WordQuery("", "");
 		model.addAttribute("Word", Word);
-		return "/query_results";
+		return "query_results";
 	}
 	
 	@PostMapping("/query_form")
@@ -44,7 +44,7 @@ public class MainController {
 		
 		model.addAttribute("wordList", wordList);
 
-		return "/query_results";
+		return "query_results";
 	}
 
 	@PostMapping("/query_results")
@@ -53,6 +53,6 @@ public class MainController {
 		
 		model.addAttribute("wordList", wordList);
 		
-		return "/query_results";
+		return "query_results";
 	}
 }

@@ -9,8 +9,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.util.ResourceUtils;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,14 +44,19 @@ public class WordsearcherApplication implements CommandLineRunner {
     jdbcTemplate.execute("CREATE TABLE words(word VARCHAR(46))");
     
     // Read the file on disk into memory
-    ClassLoader classLoader = getClass().getClassLoader();
-    File file = new File(classLoader.getResource("static/words.txt").getFile());
-    List<Object[]> tokens = Files.lines(file.toPath())
-      .map(word -> word.split(" "))
-      .collect(Collectors.toList()); 
+    List<Object[]> contents = Arrays.asList();
+
+    // NOTE: this way works for loading words.txt after the project is packaged too
+    try (InputStream inputStream = getClass().getResourceAsStream("/words.txt");
+      BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+        contents = reader.lines()
+          .map(word -> word.trim().split(" "))
+          .collect(Collectors.toList());
+    }
+    catch(Exception e) {}
 
     // Load data from Memory to table in sql
-    jdbcTemplate.batchUpdate("INSERT INTO words(word) VALUES (?)", tokens);
+    jdbcTemplate.batchUpdate("INSERT INTO words(word) VALUES (?)", contents);
     log.info("Finished Creating Table");
   }
 }

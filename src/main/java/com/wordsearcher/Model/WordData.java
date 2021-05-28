@@ -4,7 +4,7 @@ public class WordData {
     private String word;
 
     public WordData(String word) { 
-        this.word = word.trim(); 
+        this.word = word.trim().replace("\n", ""); 
     }
 
     public void setWord(String word) { this.word = word; }
