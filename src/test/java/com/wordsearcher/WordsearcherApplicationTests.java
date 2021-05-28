@@ -28,7 +28,8 @@ class WordsearcherApplicationTests {
 
 		List<Object[]> tokens = null;
 		try {
-			File file = ResourceUtils.getFile("classpath:static/words.txt");
+			ClassLoader classLoader = getClass().getClassLoader();
+			File file = new File(classLoader.getResource("static/words.txt").getFile());
 			tokens = Files.lines(file.toPath())
 				.map(word -> word.split(" "))
 				.collect(Collectors.toList()); 

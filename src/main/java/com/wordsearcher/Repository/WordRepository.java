@@ -28,6 +28,15 @@ public class WordRepository {
 	}
 
     public List<String> getAllPossible(String alike, String mode) {
+
+        // case where the user querys the entire database
+        if (alike.equals("")) {
+            return jdbcTemplate.query("SELECT * FROM words", new WordRowMapper()).stream()
+                .map(word -> word.getWord())
+                .collect(Collectors.toList());
+        }
+
+        // case wehre user makes a slective query
         List<WordData> results;
         switch(mode) {
             case "Starts With": // starts with case
@@ -46,7 +55,6 @@ public class WordRepository {
                 results = Arrays.asList(new WordData("Error with mode change"));
                 break;
         }
-
         return results.stream().map(word -> word.getWord()).collect(Collectors.toList());
         
     }

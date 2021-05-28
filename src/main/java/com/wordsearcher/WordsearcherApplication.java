@@ -40,7 +40,8 @@ public class WordsearcherApplication implements CommandLineRunner {
     jdbcTemplate.execute("CREATE TABLE words(word VARCHAR(46))");
     
     // Read the file on disk into memory
-    File file = ResourceUtils.getFile("classpath:static/words.txt");
+    ClassLoader classLoader = getClass().getClassLoader();
+    File file = new File(classLoader.getResource("static/words.txt").getFile());
     List<Object[]> tokens = Files.lines(file.toPath())
       .map(word -> word.split(" "))
       .collect(Collectors.toList()); 
