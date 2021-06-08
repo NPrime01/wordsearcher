@@ -6,9 +6,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <img src="Foxconn-logo.jpg">
-    <form class="form-style-4"  method="post">
-        <a href="/query_form"><h1>Click Here to Make your Query</h1></a>
-    </form>
+    <div class="form-style-4">
+        <h1>How to Use the UI</h1>
+        <ol>
+            <li><a href="/query_form">Click Here to begin</a></li>
+            <li>Type your query into the input box</li>
+            <li>Select Which mode you would like to query with</li>
+            <li>Press the Submit Query Button</li>
+            <li>You can browse through your Query results below or copy them to clipboard using the <code>Copy to clipboard button</code></code></li>
+        </ol>
+    </div>
+    <div class="form-style-4">
+        <h1>How to use the API</h1>
+        <ul>
+            <li>With the application running, just send a GET request to <code>localhost:8080/api/[Mode]?word=[query]</code></li>
+            <li>Simply replace [Query] with the word you would like to search for</li>
+            <li>Replace [Mode] with the mode you would like to use,
+                <ul>
+                    <li><code>sw</code> for Starts With mode</li>
+                    <li><code>ew</code> for Ends With mode</li>
+                    <li><code>co</code> for contains mode</li>
+                </ul>
+            </li>
+        </ul>
+        <p>The response will have the following structure: </p>
+        <pre><code>{
+    'word': 'your_word',
+    'mode': 'search_mode',
+    'results': ['list', 'of', 'results']
+}</code></pre>
+    </div>
 </body>
 </html>

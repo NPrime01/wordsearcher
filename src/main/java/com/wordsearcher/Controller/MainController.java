@@ -18,7 +18,7 @@ public class MainController {
 	
 	@Autowired
 	private WordRepository wordRepository;
-	
+
 	/*
 	 * The following functions handle getting the input from the user
 	 * They are mirrored to allow the results to appear on the same page as the query

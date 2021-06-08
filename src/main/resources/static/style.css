@@ -1,6 +1,5 @@
 /* Display only. Not needed! */
 
-/* Alternate theme
 body {
   background: dodgerblue linear-gradient(45deg, aqua, dodgerblue, deeppink) fixed;
 	color: white;
@@ -8,15 +7,6 @@ body {
 	text-shadow: 0 1px 1px hsl(0 0% 0% / 20%);
   margin: 3rem;
 }
-*/
-
-body {
-	background: white linear-gradient(45deg, white, white, white) fixed;
-	  color: white;
-		font: normal 32px/1.6 system-ui, sans-serif;
-	  text-shadow: 0 1px 1px hsl(0 0% 0% / 20%);
-	margin: 3rem;
-  }
 
 h1 {
 	font-weight: normal;
@@ -25,6 +15,34 @@ h1 {
 a {
   color: inherit;
 }
+
+pre {
+    background-color: #363e4d;
+    font-family: 'Monaco', monospace;
+    padding: 0 1em;
+    border-radius: 5px;
+  }
+
+code {
+    font-family: Monaco, monospace;
+    font-size: $base-font-size;
+    line-height: 100%;
+    background-color: #363e4d;
+    padding: 0.2em;
+    letter-spacing: -0.05em;
+    word-break: normal;
+    border-radius: 5px;
+  }
+
+pre code {
+    border: none;
+    background: none;
+    font-size: $base-font-size * 0.875;
+    line-height: 1em;
+    letter-spacing: normal;
+    word-break: break-all;
+    border-radius: 5px;
+  }
 
 a:focus,
 a:hover {
@@ -47,6 +65,8 @@ button {
 	padding: 15px 30px 15px 30px;
 	border: 5px solid #53687E;
   	margin-bottom: 20px;
+  	border-radius: 5px;
+  	radius: 5px;
 }
 .form-style-4 input[type=submit],
 .form-style-4 input[type=button],
@@ -166,4 +186,8 @@ td:hover {
 img {
 	max-width: 100%;
 	height: auto;
+}
+
+h1 {
+    border-bottom: 1px dashed #D9FFA9;
 }
