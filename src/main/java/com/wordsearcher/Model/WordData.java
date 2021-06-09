@@ -1,5 +1,8 @@
 package com.wordsearcher.Model;
 
+/*
+This class Stores the data for an individual word. Allows interfacing with the database
+ */
 public class WordData {
     private String word;
 

@@ -1,5 +1,9 @@
 package com.wordsearcher.Model;
 
+/*
+This class stores data from a user using the UI making a query.
+Unlike the API use case, we don't want to make the actual database query here.
+ */
 public class WordQuery {
     private String mode;
     private String word;
@@ -10,7 +14,5 @@ public class WordQuery {
     }
 
     public String getMode() { return mode; }
-    public void setMode(String mode) { this.mode = mode; }
     public String getWord() { return word; }
-    public void setWord(String word) {this.word = word; }
 }

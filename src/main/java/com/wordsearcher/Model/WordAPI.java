@@ -5,6 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
+/*
+This class stores the data requested by a GET request to the API.
+The main difference between this class and WordQuery is that we perform the database Query on initialization.
+ */
 public class WordAPI {
 
     private String word;

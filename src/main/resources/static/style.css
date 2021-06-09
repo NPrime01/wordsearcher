@@ -1,5 +1,3 @@
-/* Display only. Not needed! */
-
 body {
   background: dodgerblue linear-gradient(45deg, aqua, dodgerblue, deeppink) fixed;
 	color: white;
@@ -17,7 +15,7 @@ a {
 }
 
 pre {
-    background-color: #363e4d;
+    background-color: #53687E;;
     font-family: 'Monaco', monospace;
     padding: 0 1em;
     border-radius: 5px;
@@ -27,7 +25,7 @@ code {
     font-family: Monaco, monospace;
     font-size: $base-font-size;
     line-height: 100%;
-    background-color: #363e4d;
+    background-color: #53687E;;
     padding: 0.2em;
     letter-spacing: -0.05em;
     word-break: normal;
@@ -55,13 +53,14 @@ input {
 }
 
 button {
+	margin-top: 10px;
    font: inherit;
    padding: 0.2em 0.5em;
 }
 
 .form-style-4{
 	font-size: 16px;
-	background: #495C70;
+	background: #363e4d;
 	padding: 15px 30px 15px 30px;
 	border: 5px solid #53687E;
   	margin-bottom: 20px;
@@ -149,12 +148,14 @@ select {
 }
 
 .result-table{
-   width: 100%;
-	font-size: 16px;
-	background: #495C70;
+    width: 100%;
+    font-size: 16px;
+	background: #363e4d;
 	padding: 30px 30px 30px 30px;
 	border: 5px solid #53687E;
-   overflow: scroll;
+    overflow: scroll;
+    border-radius: 5px;
+    radius: 5px;
 }
 
 button {
@@ -176,7 +177,7 @@ th, td {
 }
 
 tr:nth-child(even) {
-   background-color:#53687E;
+   background-color: #576E86;
 }
 
 td:hover {

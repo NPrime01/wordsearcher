@@ -29,7 +29,7 @@ class WordsearcherApplicationTests {
 		List<Object[]> tokens = null;
 		try {
 			ClassLoader classLoader = getClass().getClassLoader();
-			File file = new File(classLoader.getResource("static/words.txt").getFile());
+			File file = new File(classLoader.getResource("words.txt").getFile());
 			tokens = Files.lines(file.toPath())
 				.map(word -> word.split(" "))
 				.collect(Collectors.toList()); 

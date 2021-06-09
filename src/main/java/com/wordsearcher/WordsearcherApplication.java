@@ -28,13 +28,16 @@ public class WordsearcherApplication implements CommandLineRunner {
   @Autowired
   private WordRepository wordRepository;
 
+  @Autowired
+  JdbcTemplate jdbcTemplate;
+
   public static void main(String args[]) {
     SpringApplication.run(WordsearcherApplication.class, args);
   }
 
-  @Autowired
-  JdbcTemplate jdbcTemplate;
-
+  /*
+  Called when the application starts up. Loads the database into memory.
+   */
   @Override
   public void run(String... strings) throws Exception {
 

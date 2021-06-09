@@ -19,6 +19,9 @@ public class WordRepository {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+    /*
+    Maps SQL query results to WordData objects for use sending results to the user
+     */
     class WordRowMapper implements RowMapper<WordData> {
 		@Override
 		public WordData mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -27,6 +30,9 @@ public class WordRepository {
 		}
 	}
 
+	/*
+	Gets query results and returns a list of strings containing all results of the query
+	 */
     public List<String> getAllPossible(String alike, String mode) {
 
         // case where the user querys the entire database
@@ -36,7 +42,7 @@ public class WordRepository {
                 .collect(Collectors.toList());
         }
 
-        // case wehre user makes a slective query
+        // case where user makes a selective query
         List<WordData> results;
         switch(mode) {
             case "Starts With": // starts with case
