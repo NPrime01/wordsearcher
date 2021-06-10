@@ -6,10 +6,27 @@ Query a database for any string starting with the user input.
 2. Extract the zip file wherever you'd like to run the app from
 3. Open the command line and `cd` into the directory you extracted the release into
 4. Run the program with the command `java -jar wordsearcher-1.0.jar`
-5. When it finishes initializing, open a web browser and navigate to `localhost:8080`
-6. Enjoy!
+5. When it finishes initializing, you can navigate to `localhost:8080` to use the UI or you can use the API
 
-## How to Use the App:
+## How to Use the API:
+While the app is running:
+- Send a GET request to `localhost:8080/api/[Mode]?word=[Query]`
+  - Replace [Mode] with your choice of Query mode:
+    - `sw` for Starts With mode
+    - `ew` for Ends With mode
+    - `co` for contians mode
+  - Replace [Query] with the word you would like to search for
+
+The response will have the following structure:
+```
+{
+  "word": "[Query]",
+  "mode": "[Mode]",
+  "results": [ "list", "of", "words"]
+}
+```
+
+## How to Use the UI:
 From the main page, simply click the link to be taken to the interface.
 
 When you reach the main interface, type your query into the textbox labeled "Your Query"
