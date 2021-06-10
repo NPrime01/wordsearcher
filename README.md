@@ -1,6 +1,8 @@
 # Word Searcher
 Query a database for any string starting with the user input.
 
+![image](https://user-images.githubusercontent.com/47795760/121573056-69d48e00-c9ea-11eb-8c64-93d1ad6a9fd0.png)
+
 ## How To Run:
 1. Go to releases and download the latest release
 2. Extract the zip file wherever you'd like to run the app from
